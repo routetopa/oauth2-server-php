@@ -71,7 +71,8 @@ class JwtAccessToken extends AccessToken
             'exp'        => $expires,
             'iat'        => time(),
             'token_type' => $this->config['token_type'],
-            'scope'      => $scope
+            'scope'      => $scope,
+            'email'      => \App\User::where('username', $user_id)->firstOrFail()->email,
         );
 
         /*
